@@ -435,7 +435,8 @@ class Processing:
         _r = None
 
         try:
-            if vod_live:
+            # begin real-time archiver if VOD still live and real-time archiver enabled
+            if self.real_time_archiver and vod_live:
                 stream = Stream(self.client_id, self.client_secret, self.oauth_token)
                 # concurrently grab live pieces and vod chunks
 
